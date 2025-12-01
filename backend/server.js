@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -6,7 +7,7 @@ const medicineRoutes = require("./routes/medicineRoutes");
 const addToCartRoutes = require("./routes/addToCartRoutes");
 
 const app = express();
-const PORT = 5002;
+const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors());

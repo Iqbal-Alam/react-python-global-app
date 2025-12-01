@@ -1,7 +1,9 @@
 import axios from "axios";
+// const apiBaseUrl = 'http://localhost:5001/api';
+const apiBaseUrl = 'https://react-python-global-app.onrender.com/api';
 
 const api = axios.create({
-  baseURL: "http://localhost:5002/api", // your backend API
+  baseURL: apiBaseUrl, // your backend API
 });
 
 // Request interceptor to attach token
