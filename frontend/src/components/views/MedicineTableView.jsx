@@ -7,6 +7,7 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
 import DATA from "../../utils/const";
 import { lighten } from "@mui/material/styles";
+import '../../App.css';
 
 const MedicineTableView = ({ medicines, onEdit, onDelete, onAddToCart, onBuyNow }) => {
   const headerColor = lighten(DATA.APP_PRIMARY_COLOR, 0.3);
@@ -79,7 +80,11 @@ const MedicineTableView = ({ medicines, onEdit, onDelete, onAddToCart, onBuyNow 
             {sortedMedicines.map((medicine) => (
               <tr key={medicine.id || medicine._id}>
                 {headers.map((key, i) => (
-                  <td key={i} data-label={key}>
+                  <td
+                    key={i}
+                    data-label={key}
+                    className={['medicine_name', 'amount'].includes(key) ? 'bold-cell' : ''}
+                >
                     {medicine[key] !== null && medicine[key] !== undefined
                       ? medicine[key].toString()
                       : "-"}

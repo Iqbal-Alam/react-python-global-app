@@ -20,7 +20,7 @@ export default function Header({ handleToggle }) {
   const theme = useTheme();
   const navigate = useNavigate();
   const { cartItems } = useCart();
-
+  const users = JSON.parse(localStorage.getItem('user'));
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
@@ -56,6 +56,9 @@ export default function Header({ handleToggle }) {
           </IconButton>
 
           <Avatar alt="User" src="/images/user.jpg" />
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            {users.name}
+          </Typography>
           <Button color="inherit" onClick={handleLogout}>
             Logout
           </Button>
